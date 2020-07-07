@@ -1,0 +1,22 @@
+{
+  "name": "weatherapp",
+  "version": "1.0.0",
+  "description": "A simple Weather application using openweathermap.org API.",
+  "main": "weather.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikkisengar/WeatherApp.git"
+  },
+  "author": "Nikhil Sengar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikkisengar/WeatherApp/issues"
+  },
+  "homepage": "https://github.com/nikkisengar/WeatherApp#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
