@@ -1,0 +1,61 @@
+/* All Font families */
+/* font-family: 'Architects Daughter', cursive;
+font-family: 'Bad Script', cursive;
+font-family: 'Fredericka the Great', cursive;
+font-family: 'Handlee', cursive;
+font-family: 'Indie Flower', cursive;
+font-family: 'Knewave', cursive;
+font-family: 'Love Ya Like A Sister', cursive;
+font-family: 'Monoton', cursive;
+font-family: 'Nanum Pen Script', cursive;
+font-family: 'Pacifico', cursive;
+font-family: 'Patrick Hand', cursive;
+font-family: 'Rancho', cursive;
+font-family: 'Rock Salt', cursive;
+font-family: 'Sacramento', cursive;
+font-family: 'Press Start 2P', cursive;
+font-family: 'Caveat', cursive; */
+
+body {
+  background-color: #beebe9;
+}
+
+h1 {
+  margin: 2% auto;
+  color: #e42c64;
+  font-family: 'Fredericka the Great', cursive;
+  padding: 5%;
+}
+
+h2 {
+  margin: 2% auto;
+  font-family: 'Rancho', cursive;
+  font-size: 2.5rem;
+}
+
+select {
+  font-family: 'Handlee', cursive;
+  margin-bottom: 5%;
+}
+
+option {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1rem;
+}
+
+.h2-heading {
+  color: #eb6383;
+}
+
+/* resizing the container */
+.my-custom-container{
+    width:100%;
+
+    border-style: double;
+    background-color: #f6edcf;
+}
+
+/* display the weather div after city option is selected */
+.display-on-country-selected, .display-on-state-selected, .display-on-city-selected {
+  display: none;
+}

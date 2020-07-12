@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Weather Application</title>
+
+  <!--Favicon Icon-->
+  <link rel="icon" href="favicon/sun.png">
+
+  <!--Bootstrap CSS-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <!--External CSS-->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Kalam:wght@700&family=Lobster+Two:ital,wght@1,700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Bad+Script&family=Fredericka+the+Great&family=Handlee&family=Indie+Flower&family=Knewave&family=Love+Ya+Like+A+Sister&family=Monoton&family=Nanum+Pen+Script&family=Pacifico&family=Patrick+Hand&family=Rancho&family=Rock+Salt&family=Sacramento&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/c05988054e.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="text-center">A Simple Weather Application using API:</h1>
+    <div class="row">
+      <div class="data-select-div my-custom-container col-lg">
+        <div class="form-group">
+          <h2 class="h2-heading">Country:</h2>
+          <select class="form-control" id="countryId" required>
+            <option value=""></option>
+          </select>
+        </div>
+        <div class="form-group display-on-country-selected">
+          <h2 class="h2-heading">State:</h2>
+          <select class="form-control" id="stateId" required>
+            <option value=""></option>
+          </select>
+        </div>
+        <div class="form-group display-on-state-selected">
+          <h2 class="h2-heading">City:</h2>
+          <select class="form-control" id="cityId" required>
+            <option value=""></option>
+          </select>
+        </div>
+      </div>
+
+      <div class="display-on-city-selected my-custom-container col-lg">
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="/jquery/jquery.js"></script>
+  <!-- External JavaScript -->
+  <script type="text/javascript" src="js/index.js"></script>
+</body>
+
+</html>
