@@ -1,4 +1,4 @@
-//jshint esversion:6
+// jshint esversion:6
 // jscs:disable maximumLineLength
 
 // declaring global variables to be used inside other functions or fetch request
@@ -7,19 +7,26 @@ let countryStates;
 let countryCities;
 
 // Fetching all countries using geo-battuta.net/api/country/all api
-fetch('https://cors-anywhere.herokuapp.com/' + 'https://geo-battuta.net/api/country/all/?key=4932ac87a608460ff646805e8ed26149')
+// fetch('https://cors-anywhere.herokuapp.com/' + 'https://geo-battuta.net/api/country/all/?key=4932ac87a608460ff646805e8ed26149')
+// .then(resp => resp.json())
+// .then(data => countries(data))
+// .catch(err => console.log('Error: ' + err));
+
+// Fetching all countries using restcountries api
+fetch('https://restcountries.eu/rest/v2/all')
 .then(resp => resp.json())
 .then(data => countries(data))
 .catch(err => console.log('Error: ' + err));
 
 function countries(countriesData) {
   allCountries = countriesData;
-  let countryOptions = '<option value="" disabled selected>Choose your Country *</option>';
-  allCountries.forEach(country => countryOptions += '<option value="' + country.code + '">' + country.name + '</oprion>');
+  let countryOptions = '<option value="" class="text-secondary" disabled selected>Choose your Country *</option>';
+  allCountries.forEach(country => countryOptions += '<option value="' + country.alpha2Code + '">' + country.name + ' (+' + country.callingCodes + '<lable><img src="' + country.flag + '" width="10" height="20"></lable>' + ')' + '</oprion>');
 
-  // allCountries.forEach(country => countryOptions += '<option value="' + country.alpha2Code + '">' + country.name + ' (+' + country.callingCodes + ')' + '</oprion>');
+  // <img src="' + country.flag + '">
+  // allCountries.forEach(country => countryOptions += '<option value="' + country.code + '">' + country.name + '</oprion>');
 
-  document.getElementById('countryId').innerHTML = countryOptions;
+  $('#countryId').append(countryOptions);
 
   countryRegion();
 }
@@ -28,11 +35,11 @@ function countries(countriesData) {
 function countryRegion() {
   $('#countryId').on('change', () => {
 
-    let countryCode = document.getElementById('countryId').value;
+    let countryCode = $('#countryId').val();
 
     console.log('[Inside states()] => Selected Country Code is: ' + countryCode);
 
-    // Fetching country specific all states using geo-battuta.net/api/region/ api
+    // Fetching country specific all states using battuta api
     let stateUrl = 'https://cors-anywhere.herokuapp.com/' + 'https://geo-battuta.net/api/region/' + countryCode + '/all/?key=4932ac87a608460ff646805e8ed26149';
     console.log(stateUrl);
     fetch(stateUrl)
@@ -43,14 +50,17 @@ function countryRegion() {
     function states(statesData) {
       countryStates = statesData;
       console.log(countryStates);
-      let statesOption = '<option value="" disabled selected>Choose your State *</option>';
+      let statesOption = '<option value="" class="text-secondary" disabled selected>Choose your State *</option>';
       countryStates.forEach(state => statesOption += '<option value="' + state.region + '">' + state.region + '</option>');
 
-      document.getElementById('stateId').innerHTML = statesOption;
+      $('#stateId').append(statesOption);
 
       $('.display-on-country-selected').fadeIn(500);
 
+      // using prop() we can mark the select dropdown to reset to the element which is selected in Option
+      $('#cityId option:first').prop('selected', true);
       stateCities(countryCode);
+
     }
   });
 }
@@ -61,11 +71,11 @@ function stateCities(countryCode) {
 
     $('.display-on-state-selected').fadeIn(500);
 
-    let stateRegion = document.getElementById('stateId').value;
+    let stateRegion = $('#stateId').val();
 
     console.log('[Inside cities()] => Selected CountryCode is: ' + countryCode + ', Selected State is: ' + stateRegion);
 
-    // Fetching state specific all cities using geo-battuta.net/api/city api
+    // Fetching state specific all cities using battuta api
     let cityUrl = 'https://cors-anywhere.herokuapp.com/' + 'http://geo-battuta.net/api/city/' + countryCode + '/search/?region=' + stateRegion + '&key=4932ac87a608460ff646805e8ed26149';
 
     fetch(cityUrl)
@@ -76,13 +86,12 @@ function stateCities(countryCode) {
     function cities(citiesData) {
       countryCities = citiesData;
       console.log(citiesData);
-      let citiesOption = '<option value="" disabled selected>Choose your City *</option>';
+      let citiesOption = '<option value="" class="text-secondary" disabled selected>Choose your City *</option>';
       countryCities.forEach(city => citiesOption += '<option value="' + city.city + '">' + city.city + '</option>');
 
-      document.getElementById('cityId').innerHTML = citiesOption;
+      $('#cityId').append(citiesOption);
 
-      $('#cityId').on('change', () => {
-        $('.data-select-div').hide();
+      $('.btn').on('click', () => {
         $('.display-on-city-selected').fadeIn(200);
       });
     }
